@@ -4,8 +4,9 @@ if(!defined('INCLUDED')) exit('This file cannot be opened directly');
 // ROOT route :)
 $route['ROOT'] = 'pages/home.php';
 
+
 // You can match simple routes
-// $route['admin/albums'] = 'pages/admin/albums/index.php';
+ $route['admin/albums'] = 'pages/admin/albums/index.php';
 // That will match http://site.com/index.php/admin/albums and include 
 // pages/admin/albums/index.php in the template's content placeholder
 
