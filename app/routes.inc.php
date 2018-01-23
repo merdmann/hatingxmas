@@ -6,7 +6,10 @@ $route['ROOT'] = 'pages/home.php';
 
 
 // You can match simple routes
- $route['admin/albums'] = 'pages/admin/albums/index.php';
+ $route['admin/xmas'] = 'pages/admin/xmas/index.php';
+ $route['admin/login'] = 'pages/admin/login/login.php';
+ $route['admin/logout'] = 'pages/admin/logout/logout.php';
+ $route['admin/greeter'] = 'pages/admin/login/greeter.php';
 // That will match http://site.com/index.php/admin/albums and include 
 // pages/admin/albums/index.php in the template's content placeholder
 

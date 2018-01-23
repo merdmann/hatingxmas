@@ -5,7 +5,7 @@ if(!defined('INCLUDED')) exit('This file cannot be opened directly');
 $config['site_template'] = 'default.tpl.php';
 
 // The title of your site
-$config['site_title'] = 'My App Name';
+$config['site_title'] = 'I hate Xmas';
 
 // Pretty urls will be in the format /index.php/pretty/url
 // If you have a .htaccess which rewrites everything paste /index.php/ to

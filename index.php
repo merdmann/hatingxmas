@@ -6,13 +6,14 @@ ob_start();
 session_start();
 
 // Just in case
-set_include_path('.');
+set_include_path('./app/libs');
 
 // Include files
 define('INCLUDED', true);
 
 // Include configuration file
 include 'app/config.inc.php';
+include 'app/libs/Commons.inc.php';
 
 $cache_file = 'cache/' . sha1($_SERVER['REQUEST_URI']);
 // If we are on release, hide everything and use cache
@@ -29,6 +30,11 @@ if(!$config['debug_mode']) {
   }
 } else {
   error_reporting(E_ALL ^ E_NOTICE);
+  
+  ini_set("log_errors", TRUE);
+  ini_set("error_log", "/tmp/php-error.log");
+  
+  debug("Starting ");
 }
 
 date_default_timezone_set($config['timezone']);
@@ -37,7 +43,12 @@ session_set_cookie_params($config['session_duration']);
 include 'app/routes.inc.php';
 include 'app/core/underscore.inc.php';
 include 'app/core/html_helper.inc.php';
+include 'app/libs/Player.inc.php';
+
 $html = new HtmlHelper();
+
+$player = array();
+
 include 'app/core/template.inc.php';
 
 // Router functions
@@ -108,3 +119,12 @@ if($expires = route_is_cached()) {
     );
     file_put_contents($cache_file, serialize($data));
 }
+
+
+
+global $player;
+global $current_player;
+
+
+
+

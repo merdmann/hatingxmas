@@ -5,7 +5,7 @@
 
             <p>php-boilerplate is up and running.</p>            
 
-            <p>You can check out <?php echo $html->link('this', 'admin/albums'); ?> 
+            <p>You can check out <?php echo $html->link('this', 'admin/login'); ?> 
             page to see the example route working</p>
         </div>
     </div>
