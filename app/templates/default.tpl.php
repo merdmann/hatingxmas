@@ -15,13 +15,13 @@
     	<div class="navbar-header">
       		<a class="navbar-brand" href="#">
       		<div>
-      		   <?php $current_player = $_SESSION[ "current_player"];
-      		         $player = $_SESSION[ "player" ];
+      		   <?php $current_player = unserialize($_SESSION[ "current_player"]);
+      		         $player = unserialize($_SESSION[ "player" ]);
       		         $email = $player[ $current_player ]->email;
       		   ?>
         	   <img alt="Brand" src="<?php echo( _gravatar($email));?>">
         	   <ul style="list-style-type: none">
-        	   <li><?php echo( $email ) ?></li>
+        	   <li><?php decorate_session(); ?></li>
         	   <li>Sign out</li>
         	   <ul/>
         	</div>
