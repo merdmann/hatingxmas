@@ -1,0 +1,14 @@
+{
+	"minimum-stability" : "stable",
+	"name" : "michaelslb/xmas",
+	"require" : {
+		"monolog/monolog" : "^1.23"
+	},
+	"description" : "I hate X-Mas Demo Project",
+	"type" : "project",
+	"autoload" : {
+		"psr-4" : {
+			"michaelslab\\xmas\\players\\" : "app/michaelslab/xmas/players"
+		}
+	}
+}
