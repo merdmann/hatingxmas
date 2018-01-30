@@ -3,18 +3,9 @@
  * A collection of usefull functions
  */
 
-function debug($message) {
-    error_log($message);
-}
-
-
 function session_email() {
     $current_player = unserialize($_SESSION["current_player"]);
     $player = unserialize($_SESSION[ "player" ]);
-    
-    debug( "Player" . $current_player);
-    
-    
     
     $email = $player[$current_player]->property("email");
      
@@ -28,24 +19,32 @@ function decorate_session() {
 /*
  * load the properties file
  */
-function loadProperties($name) {
+function loadProperties($file) {
     $vars = array();
-    $file = "./data/" . $name . ".txt";
-    if( !file_exists( $file ) )
-        return false;
-        
-    $lines = explode("\n", file_get_contents($file));
-        
-    debug("loadProperties:" . vars);
-    /* load the player data */
-    foreach( $lines as $l) {
-        $pair = explode(":", $l);
-        
-        $key = pair[0];
-        $vars[ $key ] = $pair[1];
-    };
     
-    return vars;
+    assert( file_exists( $file ) == false, $file . "does not exist!" );
+    
+    $contents = file_get_contents($file);
+    assert( contents === false, $file . "not loaded");
+    
+    if( !($contents === False) ) {
+        $lines = explode("\n", $contents );
+
+        /* load the properties file */
+        foreach( $lines as $l) {
+            if( strpos($l, ':') !==false ) {
+                $pair = explode(":", $l);
+            
+                $key = $pair[0];
+                $vars[ $key ] = $pair[1];
+            }
+        };
+    }
+    else {
+        return false;
+    }
+   
+    return $vars;
 }
 
 /*
@@ -56,7 +55,7 @@ function storeProperties($name, $vars) {
     foreach( $vars as $k => $v) {
         $line=$line . "\n" . $k . ":" . $v;
     }
-
+  
     $file = "./data/" . $name . ".txt";
     return file_put_contents($file, $line);
 }
