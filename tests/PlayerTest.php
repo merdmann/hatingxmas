@@ -5,7 +5,7 @@ require_once __DIR__  .  './../vendor/autoload.php';
 use michaelslab\xmas\players as players;
 use PHPUnit\Framework\TestCase;
 
-include __DIR__ . "/../app/libs/init.inc.php";
+include __DIR__ . "/../app/libs/assert.inc.php";
 
 
 /*include __DIR__ . "./../app/libs/Commons.inc.php"*/
@@ -38,6 +38,6 @@ class PlayerTest extends PHPUnit_Framework_TestCase
 	}
 	
 	public function testPLayerFiles() {
-	      
+	      assert( "1 == 3", "something is wrong" );
 	}
 }

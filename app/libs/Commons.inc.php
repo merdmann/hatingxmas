@@ -22,7 +22,7 @@ function decorate_session() {
 function loadProperties($file) {
     $vars = array();
     
-    assert( file_exists( $file ) == false, $file . "does not exist!" );
+    assert( file_exists( $file ) == true, $file . "does not exist!" );
     
     $contents = file_get_contents($file);
     assert( contents === false, $file . "not loaded");
