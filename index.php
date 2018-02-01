@@ -13,7 +13,7 @@ define('INCLUDED', true);
 
 // Include configuration file
 include 'app/config.inc.php';
-include 'app/libs/Commons.inc.php';
+/* include 'app/libs/Commons.inc.php'; */
 
 $cache_file = 'cache/' . sha1($_SERVER['REQUEST_URI']);
 // If we are on release, hide everything and use cache
@@ -33,8 +33,6 @@ if(!$config['debug_mode']) {
   
   ini_set("log_errors", TRUE);
   ini_set("error_log", "/tmp/php-error.log");
-  
-  debug("Starting ");
 }
 
 date_default_timezone_set($config['timezone']);

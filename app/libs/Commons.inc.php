@@ -1,7 +1,15 @@
 <?php
 /*
  * A collection of usefull functions
+ * 
+ * PLayer is an aray for each logged in player one element. THe session variavble 
+ * current_player simply indicates the plazer which is currently active in the 
+ * game.
+ * 
  */
+
+require_once $_SERVER[DOCUMENT_ROOT] . '/vendor/autoload.php';
+
 
 function session_email() {
     $current_player = unserialize($_SESSION["current_player"]);
@@ -25,7 +33,7 @@ function loadProperties($file) {
     assert( file_exists( $file ) == true, $file . "does not exist!" );
     
     $contents = file_get_contents($file);
-    assert( contents === false, $file . "not loaded");
+    assert( $contents !== false, $file . "not loaded");
     
     if( !($contents === False) ) {
         $lines = explode("\n", $contents );

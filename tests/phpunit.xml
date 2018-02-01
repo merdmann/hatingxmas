@@ -2,8 +2,14 @@
 <phpunit colors="true">
     <testsuites>
         <testsuite name="Application Test Suite">
-            <directory>tests</directory>
+            <directory>./tests</directory>
+   			<php>
+   				<include_path>app/libs</include_path>
+   				<ini name="/etc/php.ini" />
+   			</php>
         </testsuite>
+
     </testsuites>
+    <convertWarningsToExceptions>false></convertWarningsToExceptions>
 </phpunit>
 

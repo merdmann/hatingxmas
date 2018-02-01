@@ -24,7 +24,6 @@ class Player
     function loadPlayerProfile($name) {
         $file = "./data/" . $name . ".txt";        
         $p = loadProperties($file);
-        var_dump($p);
         
         if( $p === False )
             $p = array();

@@ -1,4 +1,11 @@
-<?php if(!defined('INCLUDED')) exit('This file cannot be opened directly'); ?>
+<?php 
+
+if(!defined('INCLUDED')) exit('This file cannot be opened directly');
+
+require_once $_SERVER[DOCUMENT_ROOT] . '/vendor/autoload.php';
+require_once $_SERVER[DOCUMENT_ROOT] . '/app/libs/Commons.inc.php';
+
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -16,7 +23,7 @@
       		<a class="navbar-brand" href="#">
       		<div>
       		   <ul style="list-style-type: none; margin-left: auto ; margin-right: auto;">
-        	   <li><img alt="Brand" src="<?php echo( _gravatar("michael.erdmann@snafu.de"));?>"></li>
+        	   <li><img alt="Brand" src="<?php echo( _gravatar(session_email()));?>"></li>
         	   <li><?php  echo("<span class=\"h6\">". "" . "</span>"); ?></li>
         	   <li class="h6"><a href="#">Sign out</a></li>
         	   <ul/>
