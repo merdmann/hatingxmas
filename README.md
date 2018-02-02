@@ -10,3 +10,10 @@ run from the root directory the command:
 
  $ vendor/bin/phpunit --bootstrap vendor/autoload.php  ./tests
  
+
+
+
+## branches
+
+develop - just the latest development stuff
+test
