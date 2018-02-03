@@ -26,7 +26,7 @@ require_once $_SERVER[DOCUMENT_ROOT] . '/app/libs/Commons.inc.php';
       		   <ul style="list-style-type: none; margin-left: auto ; margin-right: auto;">
         	   <li><img alt="Brand" src="<?php echo( _gravatar(session_email())) ;?>"></li>
         	   <li><?php  echo("<span class=\"h6\">". "" . "</span>"); ?></li>
-        	   <li class="h6"><a href="#">Sign out</a><?php echo sesssion_email();?> </li>
+        	   <li class="h6"><a href="#">Sign out</a><?php echo session_email();?> </li>
         	   </ul>
         	</div>
       		</a>

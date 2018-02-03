@@ -42,7 +42,7 @@ include 'app/routes.inc.php';
 include 'app/core/underscore.inc.php';
 include 'app/core/html_helper.inc.php';
 include 'app/libs/Player.inc.php';
-/* include 'app/libs/Commons.inc.php'; */
+include 'app/libs/Commons.inc.php';
 
 //require_once $_SERVER[DOCUMENT_ROOT] . '/app/libs/Commons.inc.php';
 
