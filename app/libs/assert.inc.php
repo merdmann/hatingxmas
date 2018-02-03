@@ -1,5 +1,7 @@
 <?php 
 
+if(!defined('INCLUDED')) exit('This file cannot be opened directly');
+
 /* use Monolog; */ 
 use Monolog\Logger;
 use Monolog\Handler\StreamHandler;

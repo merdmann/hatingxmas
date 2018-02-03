@@ -13,7 +13,7 @@ define('INCLUDED', true);
 
 // Include configuration file
 include 'app/config.inc.php';
-/* include 'app/libs/Commons.inc.php'; */
+
 
 $cache_file = 'cache/' . sha1($_SERVER['REQUEST_URI']);
 // If we are on release, hide everything and use cache
@@ -42,12 +42,15 @@ include 'app/routes.inc.php';
 include 'app/core/underscore.inc.php';
 include 'app/core/html_helper.inc.php';
 include 'app/libs/Player.inc.php';
+/* include 'app/libs/Commons.inc.php'; */
+
+//require_once $_SERVER[DOCUMENT_ROOT] . '/app/libs/Commons.inc.php';
 
 $html = new HtmlHelper();
 
 $player = array();
 
-include 'app/core/template.inc.php';
+require_once 'app/core/template.inc.php';
 
 // Router functions
 

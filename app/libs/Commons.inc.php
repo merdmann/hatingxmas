@@ -8,14 +8,26 @@
  * 
  */
 
-require_once $_SERVER[DOCUMENT_ROOT] . '/vendor/autoload.php';
+if(!defined('INCLUDED')) exit('This file cannot be opened directly');
 
+require_once $_SERVER[DOCUMENT_ROOT] . '/vendor/autoload.php';
+require_once $_SERVER[DOCUMENT_ROOT] . '/app/libs/assert.inc.php';
 
 function session_email() {
-    $current_player = unserialize($_SESSION["current_player"]);
-    $player = unserialize($_SESSION[ "player" ]);
+    if( array_key_exists("current_player", $_SESSION) ) {    
+        $current_player = unserialize($_SESSION["current_player"]);
+  
+        $player=unserialize($_SESSION[ "player" ]);
+       
+        
+        assert( $player===null, "player not set");
+        assert( $current_player===null, "current_player not set"); 
     
-    $email = $player[$current_player]->property("email");
+        $email = $player[$current_player]->property("email");
+    }
+    else {
+        $email = "";
+    }
      
     return $email;
 }

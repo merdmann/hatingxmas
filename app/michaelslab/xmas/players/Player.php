@@ -1,8 +1,10 @@
 <?php namespace michaelslab\xmas\players;
 
-/* if(!defined('INCLUDED')) exit('This file cannot be opened directly');*/
+if(!defined('INCLUDED')) exit('This file cannot be opened directly');
 
-include  'app/libs/Commons.inc.php';
+
+require_once $_SERVER[DOCUMENT_ROOT] . '/app/libs/assert.inc.php';
+
 
 class Player
 {
