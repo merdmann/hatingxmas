@@ -19,19 +19,20 @@ require_once $_SERVER[DOCUMENT_ROOT] . '/app/libs/Commons.inc.php';
   </head>
   <body>
   	<nav class="navbar navbar-default">
-  	<div class="container-fluid">
+  	  <!-- <div class="container-fluid">-->
     	<div class="navbar-header">
       		<a class="navbar-brand" href="#">
       		<div>
       		   <ul style="list-style-type: none; margin-left: auto ; margin-right: auto;">
         	   <li><img alt="Brand" src="<?php echo( _gravatar(session_email())) ;?>"></li>
         	   <li><?php  echo("<span class=\"h6\">". "" . "</span>"); ?></li>
-        	   <li class="h6"><a href="#">Sign out</a><?php echo session_email();?> </li>
+        	   <li class="h6"><?php echo session_email() ?></li>	
+        	   <li><a href="#">Sign out</a></li> 
         	   </ul>
         	</div>
       		</a>
     	</div>
-    </div>
+    <!---</div> -->
     </nav>
     <!-- This is the content placeholder, pages will be included here -->
      <!-- Begin page content -->
@@ -44,8 +45,10 @@ require_once $_SERVER[DOCUMENT_ROOT] . '/app/libs/Commons.inc.php';
     <?php echo $html->js('js/app.js'); ?>
     
     <footer class="footer">
+      <div class="footer navbar-fixed-bottom">	
        <div class="container">
-         <span class="text-muted"> Copyright (C) 2018 Michael Erdmann</span>
+         <span class="text-muted"><p>Copyright (C) 2018 Michael Erdmann</p></span>
+       </div>
        </div>
     </footer>
   </body>
