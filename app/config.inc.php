@@ -24,3 +24,5 @@ $config['base_path']  = '/';
 
 // This is useful for development, it shows errors and ignores caching
 $config['debug_mode'] = true;
+
+$config['fake_pretty_urls'] = true;

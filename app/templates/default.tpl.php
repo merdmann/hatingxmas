@@ -7,15 +7,15 @@ require_once $_SERVER[DOCUMENT_ROOT] . '/app/libs/Commons.inc.php';
 
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <title><?php echo $config['site_title']; ?></title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
-    <?php echo $html->css('css/bootstrap.min.css'); ?>
-    <?php echo $html->css('css/bootstrap-theme.min.css'); ?>
+     <?php echo $html->css('css/bootstrap.min.css'); ?>
+     <?php echo $html->css('css/bootstrap-theme.min.css'); ?>
+     <?php echo $html->css('css/app.css'); ?>
   </head>
   <body>
   	<nav class="navbar navbar-default">

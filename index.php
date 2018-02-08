@@ -11,6 +11,10 @@ set_include_path('./app/libs');
 // Include files
 define('INCLUDED', true);
 
+require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
+
+use michaelslab\xmas\core\html\HtmlHelper as helper;
+
 // Include configuration file
 include 'app/config.inc.php';
 
@@ -38,15 +42,17 @@ if(!$config['debug_mode']) {
 date_default_timezone_set($config['timezone']);
 session_set_cookie_params($config['session_duration']);
 
+
 include 'app/routes.inc.php';
 include 'app/core/underscore.inc.php';
 include 'app/core/html_helper.inc.php';
 include 'app/libs/Player.inc.php';
 include 'app/libs/Commons.inc.php';
 
-//require_once $_SERVER[DOCUMENT_ROOT] . '/app/libs/Commons.inc.php';
 
-$html = new HtmlHelper();
+$html = new helper();
+$GLOBALS['html'] = $html;
+
 
 $player = array();
 
@@ -97,7 +103,7 @@ function route_match() {
             $matched_route = $r;
             require_once __DIR__ . '/app/' . $page;
             return true;
-        }
+        }   
     }
 
     return false;
@@ -120,11 +126,6 @@ if($expires = route_is_cached()) {
     );
     file_put_contents($cache_file, serialize($data));
 }
-
-
-
-global $player;
-global $current_player;
 
 
 

@@ -1,4 +1,5 @@
-<?php
+<?php namespace michaelslab\xmas\core\html;
+
 if(!defined('INCLUDED')) exit('This file cannot be opened directly');
 
 // Simple HTML helper class
@@ -7,8 +8,7 @@ class HtmlHelper
     var $config;
 
     public function HtmlHelper() {
-        global $config;
-        $this->config = $config;
+        $this->config = $GLOBALS['config'];
     }
 
     // Generates a html unordered list from an associative array

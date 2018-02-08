@@ -1,14 +1,24 @@
 {
-	"minimum-stability" : "stable",
-	"name" : "michaelslb/xmas",
-	"require" : {
-		"monolog/monolog" : "^1.23"
+	"minimum-stability": "stable",
+	"name": "michaelslab/xmas",
+	"description": "I hate X-Mas Demo Project",
+	"license": "MIT",
+     "authors": [
+        {
+            "name": "Michael Erdmann",
+            "homepage": "http://www.michaelslab.net"
+        }
+     ],
+	 
+	"require": {
+		"monolog/monolog": "^1.23"
 	},
-	"description" : "I hate X-Mas Demo Project",
-	"type" : "project",
-	"autoload" : {
-		"psr-4" : {
-			"michaelslab\\xmas\\players\\" : "app/michaelslab/xmas/players"
+	"type": "project",
+	"autoload": {
+		"psr-4": {
+			 "michaelslab\\"                  : "app/src/", 
+			 "michaelslab\\xmas\\core\\html\\": "app/michaelslab/xmas/core/html",
+			 "michaelslab\\xmas\\players\\"   : "app/michaelslab/xmas/players/"
 		}
 	}
 }
