@@ -20,8 +20,8 @@ function session_email() {
         $player=unserialize($_SESSION[ "player" ]);
        
         
-        assert( $player===null, "player not set");
-        assert( $current_player===null, "current_player not set"); 
+        assert( $player!==null, "player not set");
+        assert( $current_player!==null, "current_player not set"); 
     
         $email = $player[$current_player]->property("email");
     }

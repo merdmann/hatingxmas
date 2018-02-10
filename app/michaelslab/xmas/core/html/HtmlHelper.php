@@ -2,13 +2,15 @@
 
 if(!defined('INCLUDED')) exit('This file cannot be opened directly');
 
+require_once $_SERVER[DOCUMENT_ROOT] . '/app/libs/logging.php';
+
 // Simple HTML helper class
 class HtmlHelper 
 {
     var $config;
 
-    public function HtmlHelper() {
-        $this->config = $GLOBALS['config'];
+    public function __construct() {
+        $this->config = $GLOBALS['config'];      
     }
 
     // Generates a html unordered list from an associative array
@@ -40,6 +42,7 @@ class HtmlHelper
 
     // Parses an URL and returns a relative URL, ignoring /index.php/
     function path_content($url) {
+        \core\info("fake_url =" . $this->config['fake_pretty_urls']);
         return str_replace('//', '/', $this->config['base_path'] . '/' . $url);
     }
 

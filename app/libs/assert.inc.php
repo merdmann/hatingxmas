@@ -46,7 +46,7 @@ function assert_callback( $script, $line, $message ) {
     
     $log->info("assert_callback called");
     
-    $log->info( $script . $line . $line );
+    $log->info( $script . " / " . $line . " / "  . $line );
     $log->info( $message );
 }
  

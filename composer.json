@@ -16,9 +16,10 @@
 	"type": "project",
 	"autoload": {
 		"psr-4": {
-			 "michaelslab\\"                  : "app/src/", 
-			 "michaelslab\\xmas\\core\\html\\": "app/michaelslab/xmas/core/html",
-			 "michaelslab\\xmas\\players\\"   : "app/michaelslab/xmas/players/"
+			 "michaelslab\\"                          : "app/src/", 
+			 "michaelslab\\xmas\\game\\"              : "app/michaelslab/xmas/game",
+			 "michaelslab\\xmas\\core\\html\\"        : "app/michaelslab/xmas/core/html",
+			 "michaelslab\\xmas\\players\\"           : "app/michaelslab/xmas/players"
 		}
 	}
 }

@@ -10,6 +10,8 @@ $route['ROOT'] = 'pages/home.php';
  $route['admin/login'] = 'pages/admin/login/login.php';
  $route['admin/logout'] = 'pages/admin/logout/logout.php';
  $route['admin/greeter'] = 'pages/admin/login/greeter.php';
+ $route['play/start'] = 'pages/killingfield.php';
+ $route["test/auto"] = 'pages/auto/auto.php';
  
 // That will match http://site.com/index.php/admin/albums and include 
 // pages/admin/albums/index.php in the template's content placeholder
@@ -30,4 +32,4 @@ $route['ROOT'] = 'pages/home.php';
 // $cache_route['view-album/(.*?)(/page/(\d+))?'] =  60 * 60 * 2; // 2 hours
 
 // Demo route
-$route['test/(.*)'] = 'pages/test.php';
+

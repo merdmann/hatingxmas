@@ -12,6 +12,7 @@ set_include_path('./app/libs');
 define('INCLUDED', true);
 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/app/libs/logging.php';
 
 use michaelslab\xmas\core\html\HtmlHelper as helper;
 
@@ -81,6 +82,8 @@ function route_match() {
         return true;
     }
 
+    core\info('url, ' . $url );
+    
     if(substr($url, -1) == '/') {
         $url = substr($url, 0, -1);
     }
@@ -88,10 +91,12 @@ function route_match() {
     // Check for simple route match
     if(array_key_exists($url, $route)) {
         $matched_route = $url;
+        core\info("matched  url " . $url . ', ' . $route );
         require_once __DIR__ . '/app/' . $route[$url];
         return true;
     }
-
+    else 
+        
     // Check for regex
     foreach($route as $r => $page) {
         $matches = array();

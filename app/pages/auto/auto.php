@@ -1,15 +1,15 @@
 <h1>Hello, <?php echo _get(0);  ?></h1>
-<h1>I hate Xmas</h1>
-
-
 
 <?php
+$autoloader = require "./vendor/autoload.php";
 
-require_once $_SERVER[DOCUMENT_ROOT] . '/vendor/autoload.php';
+$results = $autoloader->findFile("michaelslab\\xmas\\game\\Playground");
 
+echo("<h1>Found file for class at:" . $results . "</h1>" );
+?>
 
-
-$autoloader->loadClass("\MyNamespace\MyClassName");
+<?php
+$autoloader->loadClass("michaelslab\\xmas\game\Playground");
 
 print_r($autoloader);
 exit(2);
