@@ -91,7 +91,8 @@ function route_match() {
     // Check for simple route match
     if(array_key_exists($url, $route)) {
         $matched_route = $url;
-        core\info("matched  url " . $url . ', ' . $route );
+        
+        core\info("loading " . __DIR__ . './app/' . $route[$url] );       
         require_once __DIR__ . '/app/' . $route[$url];
         return true;
     }
