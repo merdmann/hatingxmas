@@ -82,6 +82,9 @@ class HtmlHelper
         return strtolower($url);
     }
 
+    function span($text, $options = null) {
+        return '<span '. $this->_parse_options($options) . '>' . $text . '</script>';
+    }
     // Private method, array to html attribute list
     function _parse_options($options) {
         if(!isset($options))

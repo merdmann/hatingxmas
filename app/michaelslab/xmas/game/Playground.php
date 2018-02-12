@@ -19,19 +19,62 @@ class Playground
         core\info("advance");
     }
     
+    function placeText( $text, $day, $size ) {
+      
+        $pos = $this->day2coordinates( $day );
+        
+        $y   = $pos["y"] * $size + 90;
+        $x   = $pos["x"] * $size;
+        
+        echo($GLOBALS["html"]->span( $text, array( 
+                'id' => $day,
+                'style'=>'position: absolute; visibility: visible; left:'. $x .'px; top:' . $y .'px; z-index: 200')));
+    }
     
     
-    function placeTile( $x, $y, $size, $tile ) {
-        $file = $_SERVER[DOCUMENT_ROOT] . '/img/' . $tile;
+    function placeTile( $x, $y, $day, $size, $tile ) {
+        $file = /*$_SERVER[DOCUMENT_ROOT] .*/ './img/' . $tile;
         
         core\info( "Tile filler " . "'" . $file . "'");
+        $file = /*$_SERVER[DOCUMENT_ROOT] .*/ './img/' . $tile;
         
         echo($GLOBALS["html"]->img( $file,
             array( 'height'=> $size,
-                   'id' => 'xmas',
-                   'style'=>'position: absolute; visibility: visible; left:'. $x*$size .'px; top:' .$y*$size .'px; z-index: 200;')));
+                   'id' => $day,
+                   'onclick' => "click_handler(" . $day . ")",
+                   'style'=>'position: absolute; visibility: visible; left:'. $x*$size .'px; top:' . (90+$y*$size) .'px; z-index: 200')));
     }
     
+    function day2coordinates($day) {
+        $result = array(2); 
+    
+        $week = ceil( $day/7 );
+        $dayOfQWeek = $day % 7;
+    
+        switch( $week ) {
+            case 1:
+                $x = $dayOfWeek;
+                $y = 1;
+                break;
+            case 2:
+                $x = 7;
+                $y = $dayOfWeek;
+                
+                break;
+            case 3:
+                $y = 7;
+                $x = $dayOfWeek;
+                break;
+            case 4:
+                $x = 1;
+                $y = $dayOfWeek;
+                break;
+        }
+        
+        core\info( "x:" .$x . "y:" . $y );
+       
+        return array( "x" => $x, "y" => $y);
+    }
     
     public function draw() {
         core\info("Draw PLayground");
@@ -46,7 +89,6 @@ class Playground
             }
             
             $x = $y = 0;
-                     
             switch( $week){
                 case 1:
                     $x = $dayOfWeek;
@@ -55,6 +97,7 @@ class Playground
                 case 2:
                     $x = 7;
                     $y = $dayOfWeek;
+                    
                     break;
                 case 3:
                     $y = 7;
@@ -67,7 +110,8 @@ class Playground
             }
             core\info( "week: " . $week . ", " . $dayOfWeek .", x:" . $x . ", y:" . $y);
            
-            $this->placeTile( $x, $y, 300, "images.png"  );
+            $this->placeTile( $x, $y, $day, 80, "images.png"  );
+            //$this->placeText( $day, $day, 80 );
             
         }
     }

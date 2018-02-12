@@ -33,36 +33,6 @@ function setupObj( name, clicker ) {
 }
 
 
-// game context 
-var deg = 0;
-var x = 0;
-var y = 0;
-
-var dx = 5
-var dy = 5;
-
-setupObj("#xmas");
-
-setTimeout( moveit, 500 );
-
-function moveit() {
-	setTimeout( moveit, 500 );
-	deg = deg + 5;
-	rotate("#xmas", deg);
-	
-	// when is am leaving the box reflect.
-	if( ( y > 300) || (y < 0) ) {
-		dx = -dx;
-		dy = -dy;
-	}
-		
-	translate("#xmas", x, y);
-	x += dx;
-	y += dy;
-	
-	$("#xpos").text( x );
-	$("#ypos").text( y );
- 
-		
+function click_handler(arg) {
+	console.log("clicked " + arg );
 }
-
