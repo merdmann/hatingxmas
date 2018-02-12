@@ -26,7 +26,7 @@ class Playground
         $y   = $pos["y"] * $size + 90;
         $x   = $pos["x"] * $size;
         
-        echo($GLOBALS["html"]->span( $text, array( 
+        echo($GLOBALS["html"]->div( "Text:" . $text, array( 
                 'id' => $day,
                 'style'=>'position: absolute; visibility: visible; left:'. $x .'px; top:' . $y .'px; z-index: 200')));
     }
@@ -44,6 +44,13 @@ class Playground
                    'onclick' => "click_handler(" . $day . ")",
                    'style'=>'position: absolute; visibility: visible; left:'. $x*$size .'px; top:' . (90+$y*$size) .'px; z-index: 200')));
     }
+    
+    function placeTileByDay( $day, $size, $tile ) {
+        $result =$this->day2coordinates( $day );
+        
+        $this->placeTile( result["x"], result["y"], $day, $size, $tile );
+    }
+    
     
     function day2coordinates($day) {
         $result = array(2); 
@@ -111,8 +118,13 @@ class Playground
             core\info( "week: " . $week . ", " . $dayOfWeek .", x:" . $x . ", y:" . $y);
            
             $this->placeTile( $x, $y, $day, 80, "images.png"  );
-            //$this->placeText( $day, $day, 80 );
             
         }
-    }
+        
+        for($day=1; $day<$this->days; $day++) {
+            $this->placeText($day, $day, 80);
+            $this->placeTileByDay($day, 80, "monster1.jpeg");
+        }
+    } /* draw end */
+            
 }/* class end */
