@@ -1,7 +1,9 @@
 <?php 
 
-require_once __DIR__  .  './../vendor/autoload.php';
+require_once  __DIR__  .  './../vendor/autoload.php';
 
+
+use michaelslab\xmas\game as game;
 use michaelslab\xmas\players as players;
 use PHPUnit\Framework\TestCase;
 
@@ -43,7 +45,9 @@ class PlayerTest extends PHPUnit_Framework_TestCase
 	             'This test has not been implemented yet.'
 	             );
 	         var_dump($GLOBAL);
-	         
+	}
+	public function testPlaceTiles() {
+	    $playground = new michaelslab\xmas\game\display\Playground(28);
 	}
 }
 

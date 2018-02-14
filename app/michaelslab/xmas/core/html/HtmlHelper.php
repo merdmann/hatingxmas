@@ -1,7 +1,6 @@
 <?php namespace michaelslab\xmas\core\html;
 
-if(!defined('INCLUDED')) exit('This file cannot be opened directly');
-
+require_once $_SERVER[DOCUMENT_ROOT] . '/vendor/autoload.php';
 require_once $_SERVER[DOCUMENT_ROOT] . '/app/libs/logging.php';
 
 // Simple HTML helper class

@@ -1,6 +1,5 @@
 <?php namespace michaelslab\xmas\players;
 
-if(!defined('INCLUDED')) exit('This file cannot be opened directly');
 
 
 require_once $_SERVER[DOCUMENT_ROOT] . '/app/libs/assert.inc.php';

@@ -1,6 +1,6 @@
-<?php namespace michaelslab\xmas\game;
+<?php namespace michaelslab\xmas\game\display;
 
-require_once $_SERVER[DOCUMENT_ROOT] . '/app/libs/logging.php';
+require_once $_SERVER['DOCUMENT_ROOT'] . '/vendor/autoload.php';
 
 use core as core;
 
@@ -8,6 +8,8 @@ class Playground
 {
     public $day = array();
     public $days = 0;
+    
+    const TILE_SIYZE = 80; 
     
     function __construct($size) {
         $this->days = $size;
@@ -48,80 +50,56 @@ class Playground
     function placeTileByDay( $day, $size, $tile ) {
         $result =$this->day2coordinates( $day );
         
-        $this->placeTile( result["x"], result["y"], $day, $size, $tile );
+        $this->placeTile( $result["x"], $result["y"], $day, $size, $tile );
     }
-    
     
     function day2coordinates($day) {
         $result = array(2); 
     
-        $week = ceil( $day/7 );
-        $dayOfQWeek = $day % 7;
+        $x = $y = 0;
+        $week = floor( $day/7 );
+        $dayOfWeek = $day % 7;
     
         switch( $week ) {
-            case 1:
+            case 0:
                 $x = $dayOfWeek;
-                $y = 1;
+                $y = 0;
                 break;
-            case 2:
+            case 1:
                 $x = 7;
                 $y = $dayOfWeek;
                 
                 break;
-            case 3:
+            case 2:
                 $y = 7;
                 $x = $dayOfWeek;
                 break;
-            case 4:
-                $x = 1;
+            case 3:
+                $x = 0;
                 $y = $dayOfWeek;
                 break;
         }
         
-        core\info( "x:" .$x . "y:" . $y );
+        core\info( "day: " . $day . ", week: " . $week . " ==> [x:" .$x . ",y:" . $y . "]" );
        
-        return array( "x" => $x, "y" => $y);
+        return array("x" => $x, "y" => $y);
     }
     
     public function draw() {
         core\info("Draw PLayground");
-        $dayOfQWeek = 1;
+        $dayOfWeek = 1;
         $week = 1;
         
-        for($day=0; $day< $this->days; $day++) {
-            $dayOfWeek++;
-            if( $dayOfWeek == 8) {
-                $week++;
-                $dayOfWeek = 1;
-            }
-            
-            $x = $y = 0;
-            switch( $week){
-                case 1:
-                    $x = $dayOfWeek;
-                    $y = 1;
-                    break;
-                case 2:
-                    $x = 7;
-                    $y = $dayOfWeek;
-                    
-                    break;
-                case 3:
-                    $y = 7;
-                    $x = $dayOfWeek;
-                    break;
-                case 4:
-                    $x = 1;
-                    $y = $dayOfWeek;
-                    break;
-            }
+        for($day=0; $day<= $this->days; $day++) {
+            $result = $this->day2coordinates($day);
+            $x = $result["x"];
+            $y = $result["y"]  + TIlE_SIZE ;
             core\info( "week: " . $week . ", " . $dayOfWeek .", x:" . $x . ", y:" . $y);
            
-            $this->placeTile( $x, $y, $day, 80, "images.png"  );
-            
+            $this->placeTile( $x, $y, $day, 80, "images.png"  );        
         }
         
-        for($day=1; $day<$this->days; $day++) {
+        for($day=1; $day<=$this->days; $day++) {
             $this->placeText($day, $day, 80);
             $this->placeTileByDay($day, 80, "monster1.jpeg");
         }
