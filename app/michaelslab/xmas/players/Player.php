@@ -1,7 +1,5 @@
 <?php namespace michaelslab\xmas\players;
 
-
-
 require_once $_SERVER[DOCUMENT_ROOT] . '/app/libs/assert.inc.php';
 
 
