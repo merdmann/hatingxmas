@@ -27,9 +27,9 @@ class Playground
         );
         
     
-    public const TILE_SIZE = 80; 
-    public CONST BASE_Y = 1.5 * self::TILE_SIZE;
-    public const BASE_X = self::TILE_SIZE;
+    const TILE_SIZE = 80; 
+    CONST BASE_Y = 1.5 * self::TILE_SIZE;
+    const BASE_X = self::TILE_SIZE;
 
     function __construct($size) {
         $this->days = $size;
