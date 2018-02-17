@@ -1,11 +1,15 @@
 <?php 
 
+use core as core;
+
+
 if(!defined('INCLUDED')) exit('This file cannot be opened directly');
 
 require_once $_SERVER[DOCUMENT_ROOT] . '/vendor/autoload.php';
 require_once $_SERVER[DOCUMENT_ROOT] . '/app/libs/Commons.inc.php';
 
-
+$html = $GLOBALS["html"];
+assert(html!=null, "html field not set")
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -16,6 +20,8 @@ require_once $_SERVER[DOCUMENT_ROOT] . '/app/libs/Commons.inc.php';
      <?php echo $html->css('css/bootstrap.min.css'); ?>
      <?php echo $html->css('css/bootstrap-theme.min.css'); ?>
      <?php echo $html->css('css/app.css'); ?>
+     <?php echo $html->css('css/app.css'); ?>
+     <?php echo $html->js("https://unpkg.com/popper.js/dist/"); ?>
   </head>
   <body>
   	<nav class="navbar navbar-default">
@@ -41,8 +47,12 @@ require_once $_SERVER[DOCUMENT_ROOT] . '/app/libs/Commons.inc.php';
     </main>
 
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+    
     <?php echo $html->js('js/bootstrap.min.js'); ?>
     <?php echo $html->js('js/app.js'); ?>
+    <?php echo $html->js( dirname( __FILE__) .  '/app.js'); ?>
+    
+    <?php core\info(dirname( __FILE__) .  './app.js'); ?> 
     
     <footer class="footer">
       <div class="footer navbar-fixed-bottom">	

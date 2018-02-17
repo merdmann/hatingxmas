@@ -23,12 +23,15 @@ class Playground
         "monster5.jpeg",
         "santaclaus.jpeg",
         "seller.jpeg",
-        "tolate.png"
+        "tolate.png",
+        "advent.jpeg",
+        "weekend.jpeg"
+        
         );
         
     
     const TILE_SIZE = 80; 
-    CONST BASE_Y = 1.5 * self::TILE_SIZE;
+    const BASE_Y = 1.5 * self::TILE_SIZE;
     const BASE_X = self::TILE_SIZE;
 
     function __construct($size) {
@@ -40,6 +43,11 @@ class Playground
             $this->day[$i] = rand(0,13);
             core\info( "day[". $i . "] = " . $this->day[ $i ]);
         }
+        $this->day[28] = 12;
+        $this->day[1] = 12;
+        
+        $this->day[7] = 15;
+        $this->fay[14] + 16;
         
         core\info("constructoer done");
     }
@@ -77,21 +85,26 @@ class Playground
         
         echo($GLOBALS["html"]->div( "Text:" . $text, array( 
                 'id' => $day,
+                'width' => TILE_SIZE . "px",
+                 'height' => TILE_SIZE . "px",
                 'style'=>'position: absolute; visibility: visible; left:'. $x .'px; top:' . $y .'px; z-index: 200')));
     }
-    
     
     function placeTileOnScreen( $x, $y, $day, $tile ) {
         $file =  './img/' . $tile;
         
         $x = $x + self::BASE_X;
-        $y = $y + self::BASE_Y;
+        $y = $y + self::BASE_Y ;
         
         core\info("day" . $day . "," . $x . "," . $y );
         
         echo($GLOBALS["html"]->img( $file,
-            array( 'height'=> self::TILE_SIZE,
-                   'id' => $day,
+            array( 
+                'width' => self::TILE_SIZE . "px",
+                'height' => self::TILE_SIZE . "px",
+                   'id' => "field",
+                   'data-toggle' => "tooltip",
+                   'title' => "Shopping day " . $day, 
                    'onclick' => "click_handler(" . $day . ")",
                    'style'=>'position: absolute; visibility: visible; left:'. $x .'px; top:' . $y .'px; z-index: 200')));
     }
@@ -147,7 +160,10 @@ class Playground
             
             $this->placeTileByDay($day, $this->tiles[$this->day[$day]]);
         }
-   
+        
+        // place theadvance button
+        
+        echo($GLOBALS["html"]->button("next", "Your Turn", array()));
     } /* draw end */
     
     

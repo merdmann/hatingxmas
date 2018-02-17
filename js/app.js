@@ -36,3 +36,9 @@ function setupObj( name, clicker ) {
 function click_handler(arg) {
 	console.log("clicked " + arg );
 }
+
+
+
+$("#field").tooltip("");
+
+

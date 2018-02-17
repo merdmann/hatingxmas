@@ -67,9 +67,14 @@ class HtmlHelper
 
         return '<img src="' . $url . '" ' . $this->_parse_options($options) . '/>';
     }
+    
+    
+    function button($name, $text, $options = null) {
+            return '<button type="button" id="' .$name . '" ' . $this->_parse_options($options) . ">" . $text . "</button>";
+    }
 
     function js($url, $options = null) {
-        return '<script src="' . $this->path_content($url) . '" ' . $this->_parse_options($options) . '></script>';
+        return '<script src="' . $this->path_content($url) . '" ' . $this->_parse_options($options) . "></script>";
     }
 
     function css($url, $options = null) {
